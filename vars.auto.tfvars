@@ -1,0 +1,17 @@
+cpu                    = 4
+cores-per-socket       = 1
+ram                    = 4096
+disksize               = 100 # in GB
+vm-guest-id            = "ubuntu64Guest"
+vsphere-unverified-ssl = "true"
+vsphere-datacenter     = "NSX-T"
+vsphere-cluster        = "prod"
+vm-datastore           = "esxi1"
+vm_count               = "3"
+ipv4_address           = "192.168"
+ipv4_netmask           = "24"
+ipv4_gateway           = "192.168"
+vm-network             = "DPortGroup"
+dns_server             = "8.8.8.8"
+vm-name-prefix         = "vm-vrf-"
+vm-template-name       = "Ubuntu-2204-Template-100GB-Thin"
