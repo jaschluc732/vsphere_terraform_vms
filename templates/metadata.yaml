@@ -1,16 +1,16 @@
 #cloud-config
-local-hostname: "${name}-${count.index}.${domain}${count.index}.com"
-instance-id: "${name}-${count.index}.${domain}${count.index}.com"
+local-hostname: ${name}-${count.index}.${domain}${count.index}
+instance-id: ${name}-${count.index}.${domain}${count.index}.com
 network:
   version: 2
   ethernets:
     ens192:
       dhcp4: false
       addresses:
-        - "${ipv4_address}.$[count.index].5/24"
-      gateway4: "${ipv4_gateway}.$[count.index].1"
+        - ${ipv4_address}.$[count.index].5/24
+      gateway4: ${ipv4_gateway}.$[count.index].1
       nameservers:
-        search: "${domain}${count.index}.com"
+        search: ${domain}${count.index}.com
         addresses: ${dns}
 growpart:
   mode: auto
