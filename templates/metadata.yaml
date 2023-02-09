@@ -1,17 +1,17 @@
 #cloud-config
-local-hostname: "${name}-${count.index}.${var.vm-domain}${count.index}.com"
-instance-id: "${name}-${count.index}.${var.vm-domain}${count.index}.com"
+local-hostname: "${name}-${count.index}.${domain}${count.index}.com"
+instance-id: "${name}-${count.index}.${domain}${count.index}.com"
 network:
   version: 2
   ethernets:
     ens192:
       dhcp4: false
       addresses:
-        - "${ipv4_address}.$[count.index].5/${var.ipv4_netmask}"
+        - "${ipv4_address}.$[count.index].5/24"
       gateway4: "${ipv4_gateway}.$[count.index].1"
       nameservers:
-        search: "${var.vm-domain}${count.index}.com"
-        addresses: ${dns_server}
+        search: "${domain}${count.index}.com"
+        addresses: ${dns}
 growpart:
   mode: auto
   devices: ['/dev/sda2']
