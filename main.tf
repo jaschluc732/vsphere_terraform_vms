@@ -68,9 +68,9 @@ resource "vsphere_virtual_machine" "vm" {
     template_uuid = data.vsphere_virtual_machine.template.id
   }
   extra_config = {
-    "guestinfo.metadata"          = base64encode(templatefile("${path.module}/templates/metadata.yaml", local.templatevars))
+    "guestinfo.metadata"          = base64encode(templatefile("${path.module}/templates/metadata.yaml"))
     "guestinfo.metadata.encoding" = "base64"
-    "guestinfo.userdata"          = base64encode(templatefile("${path.module}/templates/userdata.yaml", local.templatevars))
+    "guestinfo.userdata"          = base64encode(templatefile("${path.module}/templates/userdata.yaml"))
     "guestinfo.userdata.encoding" = "base64"
   }
   lifecycle {
